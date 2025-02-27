@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="La Buena Mesa - Restaurante y bar con cocina de autor. Disfruta de nuestra carta de platos tradicionales con toques modernos en un ambiente acogedor.">
+    <meta name="keywords" content="restaurante, bar, cocina de autor, comida tradicional, La Buena Mesa, reservas">
+    <meta name="author" content="La Buena Mesa">
+    <meta property="og:title" content="La Buena Mesa - Bar & Restaurante">
+    <meta property="og:description" content="Disfruta de nuestra carta de platos tradicionales con toques modernos en un ambiente acogedor.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://labuenamesarestaurante.com">
+    <meta property="og:image" content="images/local/HERO.avif">
+    <title>La Buena Mesa - Bar & Restaurante</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__logo" data-aos="fade-right">La Buena Mesa</h1>
+            <nav class="header__nav" data-aos="fade-left">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link nav__link--active">Inicio</a></li>
+                    <li class="nav__item"><a href="fotos.html" class="nav__link">Fotos</a></li>
+                    <li class="nav__item"><a href="carta.html" class="nav__link">Carta</a></li>
+                    <li class="nav__item"><a href="horarios.html" class="nav__link">Horarios</a></li>
+                    <li class="nav__item"><a href="nuestra-recomendacion.html" class="nav__link">Nuestra Recomendación</a></li>
+                    <li class="nav__item"><a href="contacto.html" class="nav__link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero" style="background-image: url('images/local/HERO.avif');">
+            <div class="hero__content" data-aos="zoom-in">
+                <h2 class="hero__title">Bienvenidos a La Buena Mesa</h2>
+                <p class="hero__subtitle">Donde la tradición se encuentra con la innovación culinaria</p>
+                <div class="hero__buttons">
+                    <a href="carta.html" class="btn btn--primary">Ver Nuestra Carta</a>
+                    <a href="#about" class="btn btn--secondary">Conócenos</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="about__container" data-aos="fade-up">
+                <h2 class="about__title">Nuestra Historia</h2>
+                <p class="about__description">En La Buena Mesa, nos enorgullece ofrecer una experiencia gastronómica única que combina sabores tradicionales con toques modernos. Nuestro chef ejecutivo y su equipo se dedican a crear platos excepcionales utilizando los ingredientes más frescos y de la mejor calidad.</p>
+            </div>
+        </section>
+
+        <section class="highlights">
+            <div class="highlights__container">
+                <h2 class="highlights__title" data-aos="fade-up">Lo Más Destacado</h2>
+                <div class="highlights__grid">
+                    <article class="highlight-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-utensils highlight-card__icon"></i>
+                        <h3 class="highlight-card__title">Cocina de Autor</h3>
+                        <p class="highlight-card__description">Platos únicos creados por nuestro chef ejecutivo</p>
+                    </article>
+                    <article class="highlight-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-glass-cheers highlight-card__icon"></i>
+                        <h3 class="highlight-card__title">Bar Premium</h3>
+                        <p class="highlight-card__description">Coctelería de autor y selección de vinos</p>
+                    </article>
+                    <article class="highlight-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-calendar-alt highlight-card__icon"></i>
+                        <h3 class="highlight-card__title">Eventos Especiales</h3>
+                        <p class="highlight-card__description">El lugar perfecto para tus celebraciones</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container" data-aos="fade-up">
+            <div class="footer__info">
+                <h3 class="footer__title">La Buena Mesa</h3>
+                <p class="footer__address">Calle Principal 123, Ciudad</p>
+                <p class="footer__phone">Tel: (123) 456-7890</p>
+            </div>
+            <div class="footer__hours">
+                <h3 class="footer__title">Horarios</h3>
+                <p class="footer__schedule">Lunes a Jueves: 12:00 - 23:00</p>
+                <p class="footer__schedule">Viernes y Sábado: 12:00 - 01:00</p>
+                <p class="footer__schedule">Domingo: 12:00 - 22:00</p>
+            </div>
+            <div class="footer__social">
+                <h3 class="footer__title">Síguenos</h3>
+                <div class="social__links">
+                    <a href="#" class="social__link"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#" class="social__link"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="social__link"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="https://github.com/Malagaita1988" class="social__link"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">&copy; 2024 La Buena Mesa. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/mobile-menu.js"></script>
+    <script type="module" src="js/page-transitions.js"></script>
+</body>
+</html>

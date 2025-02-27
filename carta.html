@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Carta - La Buena Mesa</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__logo" data-aos="fade-right">La Buena Mesa</h1>
+            <nav class="header__nav" data-aos="fade-left">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
+                    <li class="nav__item"><a href="fotos.html" class="nav__link">Fotos</a></li>
+                    <li class="nav__item"><a href="carta.html" class="nav__link nav__link--active">Carta</a></li>
+                    <li class="nav__item"><a href="horarios.html" class="nav__link">Horarios</a></li>
+                    <li class="nav__item"><a href="nuestra-recomendacion.html" class="nav__link">Nuestra Recomendación</a></li>
+                    <li class="nav__item"><a href="contacto.html" class="nav__link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="menu">
+            <h2 class="menu__title" data-aos="fade-up">Nuestra Carta</h2>
+            
+            <div class="menu__nav" data-aos="fade-up">
+                <button class="menu__nav-btn menu__nav-btn--active" data-category="entradas">Entradas</button>
+                <button class="menu__nav-btn" data-category="principales">Platos Principales</button>
+                <button class="menu__nav-btn" data-category="postres">Postres</button>
+                <button class="menu__nav-btn" data-category="bebidas">Bebidas</button>
+            </div>
+
+            <div class="menu__content">
+                <div class="menu__category active" id="entradas">
+                    <h3 class="category__title" data-aos="fade-up">Entradas</h3>
+                    <div class="menu__items">
+                        <article class="dish-card" data-aos="fade-up">
+                            <div class="dish-card__image">
+                                <img src="images/platos/carpachio.webp" alt="Carpaccio de Res" class="dish__img" loading="lazy">
+                            </div>
+                            <div class="dish-card__content">
+                                <h3 class="dish-card__title">Carpaccio de Res</h3>
+                                <p class="dish-card__description">Finas láminas de res con aceite de oliva, parmesano y rúcula</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">15.00 €</span>
+                                    <span class="dish-card__time">Preparación: 15 min</span>
+                                </div>
+                                <div class="dish-card__tags">
+                                    <span class="tag">Entrada</span>
+                                    <span class="tag">Frío</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="dish-card" data-aos="fade-up">
+                            <div class="dish-card__image">
+                                <img src="images/platos/ceviche.webp" alt="Ceviche Mixto" class="dish__img" loading="lazy">
+                            </div>
+                            <div class="dish-card__content">
+                                <h3 class="dish-card__title">Ceviche Mixto</h3>
+                                <p class="dish-card__description">Pescado y mariscos marinados en limón con cebolla morada, cilantro y ají</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">18.00 €</span>
+                                    <span class="dish-card__time">Preparación: 20 min</span>
+                                </div>
+                                <div class="dish-card__tags">
+                                    <span class="tag">Entrada</span>
+                                    <span class="tag">Mariscos</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="dish-card" data-aos="fade-up">
+                            <div class="dish-card__image">
+                                <img src="images/platos/provoleta.webp" alt="Provoleta Grillada" class="dish__img" loading="lazy">
+                            </div>
+                            <div class="dish-card__content">
+                                <h3 class="dish-card__title">Provoleta Grillada</h3>
+                                <p class="dish-card__description">Queso provolone a la parrilla con orégano y aceite de oliva</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">12.00 €</span>
+                                    <span class="dish-card__time">Preparación: 15 min</span>
+                                </div>
+                                <div class="dish-card__tags">
+                                    <span class="tag">Entrada</span>
+                                    <span class="tag">Caliente</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="dish-card" data-aos="fade-up">
+                            <div class="dish-card__image">
+                                <img src="images/platos/empanadas_criollas.webp" alt="Empanadas Criollas" class="dish__img" loading="lazy">
+                            </div>
+                            <div class="dish-card__content">
+                                <h3 class="dish-card__title">Empanadas Criollas</h3>
+                                <p class="dish-card__description">Rellenas de carne picada, aceitunas y huevo</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">10.00 €</span>
+                                    <span class="dish-card__time">Preparación: 20 min</span>
+                                </div>
+                                <div class="dish-card__tags">
+                                    <span class="tag">Entrada</span>
+                                    <span class="tag">Caliente</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="dish-card" data-aos="fade-up">
+                            <div class="dish-card__image">
+                                <img src="images/platos/calamares.webp" alt="Calamares a la Romana" class="dish__img" loading="lazy">
+                            </div>
+                            <div class="dish-card__content">
+                                <h3 class="dish-card__title">Calamares a la Romana</h3>
+                                <p class="dish-card__description">Aros de calamar fritos con salsa alioli</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">16.00 €</span>
+                                    <span class="dish-card__time">Preparación: 15 min</span>
+                                </div>
+                                <div class="dish-card__tags">
+                                    <span class="tag">Entrada</span>
+                                    <span class="tag">Mariscos</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="menu__category" id="principales">
+                    <h3 class="category__title" data-aos="fade-up">Platos Principales</h3>
+                    <div class="menu__items">
+                        <article class="dish-card" data-aos="fade-up">
+                            <div class="dish-card__image">
+                                <img src="images/platos/bistec.webp" alt="Lomo Saltado" class="dish__img" loading="lazy">
+                            </div>
+                            <div class="dish-card__content">
+                                <h3 class="dish-card__title">Lomo Saltado</h3>
+                                <p class="dish-card__description">Tiras de lomo fino salteadas con cebolla, tomate y papas fritas</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">25.00 €</span>
+                                    <span class="dish-card__time">Preparación: 25 min</span>
+                                </div>
+                                <div class="dish-card__tags">
+                                    <span class="tag">Principal</span>
+                                    <span class="tag">Carne</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="dish-card" data-aos="fade-up">
+                            <div class="dish-card__image">
+                                <img src="images/platos/paella_marisco.webp" alt="Paella Marinera" class="dish__img" loading="lazy">
+                            </div>
+                            <div class="dish-card__content">
+                                <h3 class="dish-card__title">Paella Marinera</h3>
+                                <p class="dish-card__description">Arroz con azafrán, mariscos variados, pescado y vegetales</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">30.00 €</span>
+                                    <span class="dish-card__time">Preparación: 35 min</span>
+                                </div>
+                                <div class="dish-card__tags">
+                                    <span class="tag">Principal</span>
+                                    <span class="tag">Mariscos</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="dish-card" data-aos="fade-up">
+                            <div class="dish-card__image">
+                                <img src="images/platos/risoto.webp" alt="Risotto de Hongos" class="dish__img" loading="lazy">
+                            </div>
+                            <div class="dish-card__content">
+                                <h3 class="dish-card__title">Risotto de Hongos</h3>
+                                <p class="dish-card__description">Arroz cremoso con variedad de hongos y queso parmesano</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">22.00 €</span>
+                                    <span class="dish-card__time">Preparación: 30 min</span>
+                                </div>
+                                <div class="dish-card__tags">
+                                    <span class="tag">Principal</span>
+                                    <span class="tag">Vegetariano</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="menu__category" id="postres">
+                    <h3 class="category__title" data-aos="fade-up">Postres</h3>
+                    <div class="menu__items">
+                        <article class="dish-card" data-aos="fade-up">
+                            <div class="dish-card__image">
+                                <img src="images/platos/tiramisu.webp" alt="Tiramisú" class="dish__img" loading="lazy">
+                            </div>
+                            <div class="dish-card__content">
+                                <h3 class="dish-card__title">Tiramisú</h3>
+                                <p class="dish-card__description">Postre italiano con café, mascarpone y cacao</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">8.00 €</span>
+                                    <span class="dish-card__time">Preparación: 15 min</span>
+                                </div>
+                                <div class="dish-card__tags">
+                                    <span class="tag">Postre</span>
+                                    <span class="tag">Café</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="dish-card" data-aos="fade-up">
+                            <div class="dish-card__image">
+                                <img src="images/platos/crema_catalana.webp" alt="Crema Catalana" class="dish__img" loading="lazy">
+                            </div>
+                            <div class="dish-card__content">
+                                <h3 class="dish-card__title">Crema Catalana</h3>
+                                <p class="dish-card__description">Crema suave con costra de azúcar caramelizada</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">7.00 €</span>
+                                    <span class="dish-card__time">Preparación: 20 min</span>
+                                </div>
+                                <div class="dish-card__tags">
+                                    <span class="tag">Postre</span>
+                                    <span class="tag">Caliente</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="dish-card" data-aos="fade-up">
+                            <div class="dish-card__image">
+                                <img src="images/platos/volca_chocolate.webp" alt="Volcán de Chocolate" class="dish__img" loading="lazy">
+                            </div>
+                            <div class="dish-card__content">
+                                <h3 class="dish-card__title">Volcán de Chocolate</h3>
+                                <p class="dish-card__description">Bizcocho caliente de chocolate con centro líquido y helado de vainilla</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">10.00 €</span>
+                                    <span class="dish-card__time">Preparación: 15 min</span>
+                                </div>
+                                <div class="dish-card__tags">
+                                    <span class="tag">Postre</span>
+                                    <span class="tag">Chocolate</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="menu__category" id="bebidas">
+                    <h3 class="category__title" data-aos="fade-up">Bebidas</h3>
+                    <div class="menu__items">
+                        <article class="dish-card" data-aos="fade-up">
+                            <div class="dish-card__image">
+                                <img src="images/platos/Sangria.webp" alt="Sangría Española" class="dish__img" loading="lazy">
+                            </div>
+                            <div class="dish-card__content">
+                                <h3 class="dish-card__title">Sangría Española</h3>
+                                <p class="dish-card__description">Vino tinto con frutas frescas y un toque de brandy</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">20.00 €</span>
+                                    <span class="dish-card__time">Preparación: 10 min</span>
+                                </div>
+                                <div class="dish-card__tags">
+                                    <span class="tag">Bebida</span>
+                                    <span class="tag">Alcohol</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="dish-card" data-aos="fade-up">
+                            <div class="dish-card__image">
+                                <img src="images/platos/pisco.webp" alt="Pisco Sour" class="dish__img" loading="lazy">
+                            </div>
+                            <div class="dish-card__content">
+                                <h3 class="dish-card__title">Pisco Sour</h3>
+                                <p class="dish-card__description">Cóctel peruano con pisco, limón, clara de huevo y amargo de angostura</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">12.00 €</span>
+                                    <span class="dish-card__time">Preparación: 5 min</span>
+                                </div>
+                                <div class="dish-card__tags">
+                                    <span class="tag">Bebida</span>
+                                    <span class="tag">Cóctel</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="dish-card" data-aos="fade-up">
+                            <div class="dish-card__image">
+                                <img src="images/platos/limonada.webp" alt="Limonada de la Casa" class="dish__img" loading="lazy">
+                            </div>
+                            <div class="dish-card__content">
+                                <h3 class="dish-card__title">Limonada de la Casa</h3>
+                                <p class="dish-card__description">Limones frescos con hierba buena y un toque de miel</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">5.00 €</span>
+                                    <span class="dish-card__time">Preparación: 5 min</span>
+                                </div>
+                                <div class="dish-card__tags">
+                                    <span class="tag">Bebida</span>
+                                    <span class="tag">Sin Alcohol</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container" data-aos="fade-up">
+            <div class="footer__info">
+                <h3 class="footer__title">La Buena Mesa</h3>
+                <p class="footer__address">Calle Principal 123, Ciudad</p>
+                <p class="footer__phone">Tel: (123) 456-7890</p>
+            </div>
+            <div class="footer__hours">
+                <h3 class="footer__title">Horarios</h3>
+                <p class="footer__schedule">Lunes a Jueves: 12:00 - 23:00</p>
+                <p class="footer__schedule">Viernes y Sábado: 12:00 - 01:00</p>
+                <p class="footer__schedule">Domingo: 12:00 - 22:00</p>
+            </div>
+            <div class="footer__social">
+                <h3 class="footer__title">Síguenos</h3>
+                <div class="social__links">
+                    <a href="#" class="social__link"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#" class="social__link"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="social__link"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="https://github.com/Malagaita1988" class="social__link"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">&copy; 2024 La Buena Mesa. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+    <script type="module" src="js/mobile-menu.js"></script>
+</body>
+</html>

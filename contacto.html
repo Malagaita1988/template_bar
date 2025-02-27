@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Contacta con La Buena Mesa para reservas o información. Restaurante y bar con cocina de autor en el centro de la ciudad.">
+    <title>Contacto - La Buena Mesa</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__logo" data-aos="fade-right">La Buena Mesa</h1>
+            <nav class="header__nav" data-aos="fade-left">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
+                    <li class="nav__item"><a href="fotos.html" class="nav__link">Fotos</a></li>
+                    <li class="nav__item"><a href="carta.html" class="nav__link">Carta</a></li>
+                    <li class="nav__item"><a href="horarios.html" class="nav__link">Horarios</a></li>
+                    <li class="nav__item"><a href="nuestra-recomendacion.html" class="nav__link">Nuestra Recomendación</a></li>
+                    <li class="nav__item"><a href="contacto.html" class="nav__link nav__link--active">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="contact">
+            <h2 class="contact__title" data-aos="fade-up">Contacto y Reservas</h2>
+            
+            <div class="contact__container">
+                <div class="contact__info" data-aos="fade-right">
+                    <h3 class="contact__subtitle">Información de Contacto</h3>
+                    <div class="contact__details">
+                        <div class="contact__detail">
+                            <i class="fas fa-map-marker-alt contact__icon"></i>
+                            <p>Calle Principal 123, Ciudad</p>
+                        </div>
+                        <div class="contact__detail">
+                            <i class="fas fa-phone contact__icon"></i>
+                            <p>(123) 456-7890</p>
+                        </div>
+                        <div class="contact__detail">
+                            <i class="fas fa-envelope contact__icon"></i>
+                            <p>info@labuenamesarestaurante.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact__map">
+                        <h3 class="contact__subtitle">Nuestra Ubicación</h3>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.6167379599244!2d-3.7037974846368434!3d40.41694797936422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422997800a3c81%3A0xc436dec1618c2269!2zUHVlcnRhIGRlbCBTb2wsIE1hZHJpZCwgRXNwYcOxYQ!5e0!3m2!1ses!2ses!4v1624371896461!5m2!1ses!2ses" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                
+                <div class="contact__form-container" data-aos="fade-left">
+                    <h3 class="contact__subtitle">Haz tu Reserva</h3>
+                    <form class="contact__form" id="reservation-form">
+                        <div class="form__group">
+                            <label for="name" class="form__label">Nombre completo</label>
+                            <input type="text" id="name" name="name" class="form__input" required>
+                        </div>
+                        <div class="form__group">
+                            <label for="email" class="form__label">Correo electrónico</label>
+                            <input type="email" id="email" name="email" class="form__input" required>
+                        </div>
+                        <div class="form__group">
+                            <label for="phone" class="form__label">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" class="form__input" required>
+                        </div>
+                        <div class="form__row">
+                            <div class="form__group">
+                                <label for="date" class="form__label">Fecha</label>
+                                <input type="date" id="date" name="date" class="form__input" required>
+                            </div>
+                            <div class="form__group">
+                                <label for="time" class="form__label">Hora</label>
+                                <input type="time" id="time" name="time" class="form__input" required>
+                            </div>
+                        </div>
+                        <div class="form__group">
+                            <label for="guests" class="form__label">Número de personas</label>
+                            <input type="number" id="guests" name="guests" min="1" max="20" class="form__input" required>
+                        </div>
+                        <div class="form__group">
+                            <label for="message" class="form__label">Mensaje o solicitudes especiales</label>
+                            <textarea id="message" name="message" class="form__textarea"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary form__submit">Enviar Reserva</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container" data-aos="fade-up">
+            <div class="footer__info">
+                <h3 class="footer__title">La Buena Mesa</h3>
+                <p class="footer__address">Calle Principal 123, Ciudad</p>
+                <p class="footer__phone">Tel: (123) 456-7890</p>
+            </div>
+            <div class="footer__hours">
+                <h3 class="footer__title">Horarios</h3>
+                <p class="footer__schedule">Lunes a Jueves: 12:00 - 23:00</p>
+                <p class="footer__schedule">Viernes y Sábado: 12:00 - 01:00</p>
+                <p class="footer__schedule">Domingo: 12:00 - 22:00</p>
+            </div>
+            <div class="footer__social">
+                <h3 class="footer__title">Síguenos</h3>
+                <div class="social__links">
+                    <a href="#" class="social__link"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#" class="social__link"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="social__link"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="https://github.com/Malagaita1988" class="social__link"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">&copy; 2024 La Buena Mesa. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/contact.js"></script>
+    <script type="module" src="js/mobile-menu.js"></script>
+</body>
+</html>

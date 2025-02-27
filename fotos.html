@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fotos - La Buena Mesa</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__logo" data-aos="fade-right">La Buena Mesa</h1>
+            <nav class="header__nav" data-aos="fade-left">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
+                    <li class="nav__item"><a href="fotos.html" class="nav__link nav__link--active">Fotos</a></li>
+                    <li class="nav__item"><a href="carta.html" class="nav__link">Carta</a></li>
+                    <li class="nav__item"><a href="horarios.html" class="nav__link">Horarios</a></li>
+                    <li class="nav__item"><a href="nuestra-recomendacion.html" class="nav__link">Nuestra Recomendación</a></li>
+                    <li class="nav__item"><a href="contacto.html" class="nav__link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="gallery">
+            <h2 class="gallery__title" data-aos="fade-up">Nuestra Galería</h2>
+            <div class="gallery__filters" data-aos="fade-up">
+                <button class="filter__btn filter__btn--active" data-filter="all">Todo</button>
+                <button class="filter__btn" data-filter="local">Local</button>
+                <button class="filter__btn" data-filter="platos">Platos</button>
+                <button class="filter__btn" data-filter="eventos">Eventos</button>
+            </div>
+            
+            <div class="gallery__grid">
+                <!-- Local -->
+                <div class="gallery__item" data-category="local" data-aos="fade-up">
+                    <img src="images/local/interior.webp" alt="Interior del restaurante" class="gallery__img" loading="lazy">
+                    <div class="gallery__overlay">
+                        <h3 class="gallery__item-title">Elegante Salón Principal</h3>
+                    </div>
+                </div>
+                <div class="gallery__item" data-category="local" data-aos="fade-up">
+                    <img src="images/local/terraza.webp" alt="Terraza del Restaurante" class="gallery__img" loading="lazy">
+                    <div class="gallery__overlay">
+                        <h3 class="gallery__item-title">Terraza Acogedora</h3>
+                    </div>
+                </div>
+                <!-- Platos -->
+                <div class="gallery__item" data-category="platos" data-aos="fade-up">
+                    <img src="images/platos/paella_marisco.webp" alt="Paella de Mariscos" class="gallery__img" loading="lazy">
+                    <div class="gallery__overlay">
+                        <h3 class="gallery__item-title">Paella de Mariscos</h3>
+                    </div>
+                </div>
+                <div class="gallery__item" data-category="platos" data-aos="fade-up">
+                    <img src="images/platos/salmon.webp" alt="Salmón a la Parrilla" class="gallery__img" loading="lazy">
+                    <div class="gallery__overlay">
+                        <h3 class="gallery__item-title">Salmón a la Parrilla</h3>
+                    </div>
+                </div>
+                <div class="gallery__item" data-category="platos" data-aos="fade-up">
+                    <img src="images/platos/pasta_carvonara.webp" alt="Pasta Carbonara" class="gallery__img" loading="lazy">
+                    <div class="gallery__overlay">
+                        <h3 class="gallery__item-title">Pasta Carbonara</h3>
+                    </div>
+                </div>
+                <div class="gallery__item" data-category="platos" data-aos="fade-up">
+                    <img src="images/platos/bistec.webp" alt="Bistec a la Parrilla" class="gallery__img" loading="lazy">
+                    <div class="gallery__overlay">
+                        <h3 class="gallery__item-title">Bistec a la Parrilla</h3>
+                    </div>
+                </div>
+                <!-- Eventos -->
+                <div class="gallery__item" data-category="eventos" data-aos="fade-up">
+                    <img src="images/eventos/evento1.webp" alt="Cata de Vinos" class="gallery__img" loading="lazy">
+                    <div class="gallery__overlay">
+                        <h3 class="gallery__item-title">Cata de Vinos</h3>
+                    </div>
+                </div>
+                <div class="gallery__item" data-category="eventos" data-aos="fade-up">
+                    <img src="images/eventos/evento_corporativo.webp" alt="Evento Corporativo" class="gallery__img" loading="lazy">
+                    <div class="gallery__overlay">
+                        <h3 class="gallery__item-title">Eventos Corporativos</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container" data-aos="fade-up">
+            <div class="footer__info">
+                <h3 class="footer__title">La Buena Mesa</h3>
+                <p class="footer__address">Calle Principal 123, Ciudad</p>
+                <p class="footer__phone">Tel: (123) 456-7890</p>
+            </div>
+            <div class="footer__hours">
+                <h3 class="footer__title">Horarios</h3>
+                <p class="footer__schedule">Lunes a Jueves: 12:00 - 23:00</p>
+                <p class="footer__schedule">Viernes y Sábado: 12:00 - 01:00</p>
+                <p class="footer__schedule">Domingo: 12:00 - 22:00</p>
+            </div>
+            <div class="footer__social">
+                <h3 class="footer__title">Síguenos</h3>
+                <div class="social__links">
+                    <a href="#" class="social__link"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#" class="social__link"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" class="social__link"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="https://github.com/Malagaita1988" class="social__link"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">&copy; 2024 La Buena Mesa. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/gallery.js" defer></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/mobile-menu.js"></script>
+</body>
+</html>

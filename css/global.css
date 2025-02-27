@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Colors - Enhanced for better contrast and visual appeal */
+    --primary-color: #D62828; /* Deeper red for better contrast */
+    --secondary-color: #F8B400; /* Warmer gold for better visibility */
+    --accent-color: #2A9D8F; /* Teal green for modern look */
+    --text-color: #1A1A2E; /* Darker blue-black for better readability */
+    --text-light: #4A5568; /* Darker gray for better contrast on light backgrounds */
+    --light-bg: #F9F4E3; /* Softer cream background */
+    --white: #FFFCF2; /* Warmer white for less eye strain */
+    --menu-primary: var(--primary-color);
+    --menu-secondary: var(--secondary-color);
+    --menu-bg: #0A192F;
+    --menu-text: var(--text-color);
+    --menu-price: var(--accent-color);
+    --menu-transition: all 0.3s ease-in-out;
+    --menu-glass: rgba(249, 244, 227, 0.95); /* More opaque for better readability */
+    --menu-shadow: 0 8px 20px rgba(26, 26, 46, 0.15); /* Enhanced shadow for depth */
+    --menu-border: rgba(214, 40, 40, 0.15); /* Slightly more visible border */
+    --menu-neon: 0 0 15px rgba(248, 180, 0, 0.6); /* Subtle glow effect */
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --schedule-shadow-soft: 0 4px 8px rgba(0, 0, 0, 0.08);
+    --schedule-shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.12);
+    --schedule-gradient: linear-gradient(135deg, var(--menu-bg), #ffffff);
+    --schedule-border-glow: 0 0 15px rgba(248, 180, 0, 0.3);
+    
+    /* Typography - Enhanced for better readability */
+    --font-primary: 'Montserrat', 'Poppins', sans-serif;
+    --font-secondary: 'UnifrakturMaguntia', 'Playfair Display', serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 3rem;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --container-width: 1200px;
+    
+    /* Effects - Enhanced for more polish */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-sm: 0 2px 4px rgba(26, 26, 46, 0.1);
+    --shadow-md: 0 4px 8px rgba(26, 26, 46, 0.12);
+    --shadow-lg: 0 8px 16px rgba(26, 26, 46, 0.15);
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    
+    /* Header and Footer Variables */
+    --header-height: 80px;
+    --header-bg: rgba(255, 252, 242, 0.95);
+    --header-shadow: 0 2px 10px rgba(26, 26, 46, 0.1);
+    --header-border: 1px solid rgba(214, 40, 40, 0.1);
+    --nav-link-color: var(--text-color);
+    --nav-link-hover: var(--primary-color);
+    --footer-bg: var(--menu-bg);
+    --footer-text: var(--white);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    width: 100%;
+}
+
+.main {
+    flex: 1;
+    padding-top: var(--header-height);
+    background-color: var(--white);
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    min-height: calc(100vh - var(--header-height));
+    display: flex;
+    flex-direction: column;
+    overflow-x: visible;
+    overflow-y: visible;
+}
+
+/* Add smooth transitions for all interactive elements */
+a, button, input, select, textarea {
+    transition: var(--transition);
+}
+
+/* Page transition animations */
+.page-transition {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes socialIconPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3) rotate(5deg); }
+    100% { transform: scale(1.2) rotate(5deg); }
+}
+
+/* Improve focus states for accessibility */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Improve image rendering */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    font-family: var(--font-primary);
+    border: none;
+    background: none;
+    transition: var(--transition);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.section {
+    padding: 4rem 0;
+}
+
+.section__title {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section__title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+        width: 100%;
+    }
+    
+    .main {
+        padding-top: var(--header-height);
+        overflow-x: hidden;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+
+    .btn {
+        padding: 0.6rem 1.2rem;
+    }
+}
