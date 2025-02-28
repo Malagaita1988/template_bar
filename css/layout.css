@@ -297,11 +297,44 @@
     
     /* Fix for mobile menu display */
     .header__nav {
-        display: none;
-    }
-    
-    .header__nav.active {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background-color: var(--header-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 80px 20px 20px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
         display: block;
+    }
+
+    .header__nav:not(.active) {
+        right: -100%;
+    }
+
+    .header__nav.active {
+        right: 0;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav__item {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .nav__link {
+        display: block;
+        padding: 10px 0;
+        font-size: 1.2rem;
     }
 }
 

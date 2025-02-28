@@ -65,9 +65,27 @@ Este repositorio contiene el código fuente para el sitio web de "La Buena Mesa"
 
 3. Para desarrollo, se recomienda usar un servidor local como Live Server en VS Code.
 
+## Características Implementadas
+
+### Sistema de Reservas Online
+
+Se ha implementado un sistema completo de reservas online con las siguientes funcionalidades:
+
+- Formulario de reserva para clientes
+- Panel de administración para gestionar reservas
+- Notificaciones por email de nuevas reservas
+- Confirmación o cancelación de reservas
+- API RESTful para la gestión de reservas
+
+## Tecnología del Sistema de Reservas
+
+- Node.js y Express para el backend
+- MongoDB para la base de datos
+- JWT para autenticación de administradores
+- Nodemailer para envío de notificaciones por email
+
 ## Pendientes y Mejoras Futuras
 
-- Implementación de sistema de reservas online
 - Optimización de rendimiento y carga de imágenes
 - Integración con redes sociales
 - Versión en múltiples idiomas

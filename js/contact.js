@@ -153,63 +153,173 @@ document.addEventListener('DOMContentLoaded', () => {
         // Setup form validation
         setupFormValidation();
         
-        // Add submit event listener to the form
-        reservationForm.addEventListener('submit', function(e) {
+        // Handle form submission
+        reservationForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
             // Validate all fields before submission
-            if (!validateForm()) {
-                showNotification('Por favor, corrija los errores en el formulario antes de enviar.', 'error');
-                return;
-            }
+            const formInputs = reservationForm.querySelectorAll('.form__input, .form__textarea');
+            let isFormValid = true;
             
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
-            const guests = document.getElementById('guests').value;
-            const message = document.getElementById('message').value;
+            formInputs.forEach(input => {
+                validateInput(input);
+                if (input.classList.contains('input--invalid')) {
+                    isFormValid = false;
+                }
+            });
             
-            // Simulate form submission (in a real application, this would be an API call)
-            showNotification('Procesando su reserva...', 'info');
-            
-            // Simulate server response delay
-            setTimeout(() => {
-                // In a real application, you would send the data to a server here
-                console.log('Form submitted with data:', {
-                    name,
-                    email,
-                    phone,
-                    date,
-                    time,
-                    guests,
-                    message
+            if (isFormValid) {
+                // Simulate form submission
+                const submitButton = reservationForm.querySelector('.form__submit');
+                const originalText = submitButton.textContent;
+                
+                submitButton.disabled = true;
+                submitButton.textContent = 'Enviando...';
+                
+                // Create a feedback message container if it doesn't exist
+                let feedbackMessage = document.querySelector('.form-feedback');
+                if (!feedbackMessage) {
+                    feedbackMessage = document.createElement('div');
+                    feedbackMessage.className = 'form-feedback';
+                    feedbackMessage.style.padding = '15px';
+                    feedbackMessage.style.marginTop = '20px';
+                    feedbackMessage.style.borderRadius = '5px';
+                    feedbackMessage.style.textAlign = 'center';
+                    feedbackMessage.style.fontWeight = 'bold';
+                    feedbackMessage.style.transition = 'all 0.3s ease';
+                    reservationForm.appendChild(feedbackMessage);
+                }
+                
+                // Prepare form data for submission
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    date: document.getElementById('date').value,
+                    time: document.getElementById('time').value,
+                    guests: parseInt(document.getElementById('guests').value),
+                    message: document.getElementById('message') ? document.getElementById('message').value : ''
+                };
+                
+                // Send data to the server
+                fetch('http://localhost:3000/api/reservations', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Reset form
+                    reservationForm.reset();
+                    
+                    // Reset validation UI
+                    formInputs.forEach(input => {
+                        input.classList.remove('input--valid', 'input--invalid');
+                        const validationIcon = input.parentElement.querySelector('.validation-icon');
+                        const validationMessage = input.parentElement.querySelector('.validation-message');
+                        validationIcon.style.display = 'none';
+                        validationMessage.style.display = 'none';
+                    });
+                    
+                    // Re-enable submit button
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalText;
+                    
+                    if (data.success) {
+                        // Show success message with visual feedback
+                        feedbackMessage.style.backgroundColor = '#4CAF50';
+                        feedbackMessage.style.color = 'white';
+                        feedbackMessage.textContent = data.message || '¡Reserva enviada con éxito! Nos pondremos en contacto contigo pronto.';
+                        
+                        // Scroll to feedback message
+                        feedbackMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        // Show the confirmation overlay
+                        showConfirmation();
+                        
+                        // Hide the message after 5 seconds
+                        setTimeout(() => {
+                            feedbackMessage.style.opacity = '0';
+                            setTimeout(() => {
+                                feedbackMessage.style.display = 'none';
+                                feedbackMessage.style.opacity = '1';
+                            }, 300);
+                        }, 5000);
+                    } else {
+                        // Show error message
+                        feedbackMessage.style.backgroundColor = '#f44336';
+                        feedbackMessage.style.color = 'white';
+                        feedbackMessage.style.display = 'block';
+                        feedbackMessage.textContent = data.message || 'Ha ocurrido un error al procesar su reserva. Por favor, inténtelo de nuevo más tarde.';
+                        
+                        // If there are field-specific errors, highlight them
+                        if (data.errors && Array.isArray(data.errors)) {
+                            data.errors.forEach(err => {
+                                const input = document.getElementById(err.field);
+                                if (input) {
+                                    input.classList.add('input--invalid');
+                                    const validationMessage = input.parentElement.querySelector('.validation-message');
+                                    if (validationMessage) {
+                                        validationMessage.textContent = err.message;
+                                        validationMessage.style.color = '#F44336';
+                                        validationMessage.style.display = 'block';
+                                    }
+                                }
+                            });
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    
+                    // Re-enable submit button
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalText;
+                    
+                    // Show error message
+                    feedbackMessage.style.backgroundColor = '#f44336';
+                    feedbackMessage.style.color = 'white';
+                    feedbackMessage.style.display = 'block';
+                    feedbackMessage.textContent = 'Error de conexión. Por favor, inténtelo de nuevo más tarde.';
                 });
+            } else {
+                // Show error message for invalid form
+                let feedbackMessage = document.querySelector('.form-feedback');
+                if (!feedbackMessage) {
+                    feedbackMessage = document.createElement('div');
+                    feedbackMessage.className = 'form-feedback';
+                    feedbackMessage.style.padding = '15px';
+                    feedbackMessage.style.marginTop = '20px';
+                    feedbackMessage.style.borderRadius = '5px';
+                    feedbackMessage.style.textAlign = 'center';
+                    feedbackMessage.style.fontWeight = 'bold';
+                    feedbackMessage.style.transition = 'all 0.3s ease';
+                    reservationForm.appendChild(feedbackMessage);
+                }
                 
-                // Show success message
-                showConfirmation();
+                feedbackMessage.style.backgroundColor = '#f44336';
+                feedbackMessage.style.color = 'white';
+                feedbackMessage.style.display = 'block';
+                feedbackMessage.textContent = 'Por favor, corrige los errores en el formulario antes de enviar.';
                 
-                // Reset form and validation states
-                reservationForm.reset();
-                resetValidationStates();
-            }, 1500);
+                // Scroll to the first invalid input
+                const firstInvalidInput = reservationForm.querySelector('.input--invalid');
+                if (firstInvalidInput) {
+                    firstInvalidInput.focus();
+                    firstInvalidInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
         });
     }
     
-    // Reset all validation states
-    function resetValidationStates() {
-        const formInputs = reservationForm.querySelectorAll('.form__input, .form__textarea');
-        formInputs.forEach(input => {
-            input.classList.remove('input--valid', 'input--invalid');
-            const validationIcon = input.parentElement.querySelector('.validation-icon');
-            const validationMessage = input.parentElement.querySelector('.validation-message');
-            if (validationIcon) validationIcon.style.display = 'none';
-            if (validationMessage) validationMessage.style.display = 'none';
-        });
-    }
-    
+
     // Show confirmation message after successful submission
     function showConfirmation() {
         // Create overlay

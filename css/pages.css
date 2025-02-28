@@ -1025,34 +1025,46 @@
 
     .schedule__container {
         grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 0 1rem;
+        padding: 0 var(--spacing-md);
     }
     
     .schedule__regular,
     .schedule__special {
-        padding: 1.5rem;
-        width: 100%;
+        padding: var(--spacing-lg);
     }
     
     .schedule__subtitle {
         font-size: 1.5rem;
-        margin-bottom: 1.2rem;
     }
     
-    .schedule__event {
-        padding: 1.2rem;
-        margin-bottom: 1.2rem;
+    .schedule__item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem 0;
+    }
+    
+    .schedule__day,
+    .schedule__hours {
+        font-size: 1rem;
+    }
+    
+    .schedule__special-events {
+        margin-top: 2rem;
     }
     
     .event__title {
         font-size: 1.1rem;
     }
     
+    .event__time {
+        font-size: 0.9rem;
+    }
+    
     .schedule__note {
-        padding: 1rem 1.5rem;
-        margin-top: 2rem;
-        width: 90%;
+        padding: 0 var(--spacing-md);
+        text-align: center;
+        font-size: 0.9rem;
     }
     
     .menu__items {
@@ -1138,6 +1150,14 @@
     .schedule__title,
     .contact__title {
         font-size: 2rem;
+    }
+    
+    .schedule__title {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .schedule__container {
+        gap: var(--spacing-lg);
     }
     
     .highlights__grid {

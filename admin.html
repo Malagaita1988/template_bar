@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - La Buena Mesa</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <style>
+        .admin-container {
+            max-width: var(--container-width);
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .login-form {
+            max-width: 400px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: var(--light-bg);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
+        }
+        .dashboard {
+            display: none;
+        }
+        .dashboard.active {
+            display: block;
+        }
+        .reservations-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .reservations-table th,
+        .reservations-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .status-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--border-radius-sm);
+            font-size: var(--font-size-sm);
+        }
+        .status-pending {
+            background: var(--warning-color);
+            color: var(--light-bg);
+        }
+        .status-confirmed {
+            background: var(--success-color);
+            color: var(--light-bg);
+        }
+        .status-cancelled {
+            background: var(--danger-color);
+            color: var(--light-bg);
+        }
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Login Form -->
+        <form id="loginForm" class="login-form">
+            <h2>Iniciar Sesión</h2>
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        </form>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="dashboard">
+            <h1>Panel de Administración</h1>
+            <div class="dashboard-header">
+                <h2>Reservaciones</h2>
+                <button id="logoutBtn" class="btn btn-secondary">Cerrar Sesión</button>
+            </div>
+            <div class="reservations-list">
+                <table class="reservations-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Personas</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reservationsTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Token management
+        function getToken() {
+            return localStorage.getItem('adminToken');
+        }
+
+        function setToken(token) {
+            localStorage.setItem('adminToken', token);
+        }
+
+        function removeToken() {
+            localStorage.removeItem('adminToken');
+        }
+
+        // Show/hide dashboard
+        function showDashboard() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('dashboard').classList.add('active');
+            loadReservations();
+        }
+
+        function showLoginForm() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('dashboard').classList.remove('active');
+        }
+
+        // Handle login
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/api/admin/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    setToken(data.data.token);
+                    showDashboard();
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                alert('Error al iniciar sesión. Es posible que el servidor no esté conectado a la base de datos. Por favor, asegúrese de que MongoDB está instalado y en ejecución.');
+            }
+        });
+
+        // Handle logout
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            removeToken();
+            showLoginForm();
+        });
+
+        // Load reservations
+        async function loadReservations() {
+            try {
+                const response = await fetch('http://localhost:3000/api/reservations', {
+                    headers: {
+                        'Authorization': `Bearer ${getToken()}`
+                    }
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    displayReservations(data.data.reservations);
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error loading reservations:', error);
+                alert('Error al cargar las reservaciones');
+            }
+        }
+
+        // Display reservations
+        function displayReservations(reservations) {
+            const tbody = document.getElementById('reservationsTableBody');
+            tbody.innerHTML = '';
+
+            reservations.forEach(reservation => {
+                const tr = document.createElement('tr');
+                const date = new Date(reservation.date).toLocaleDateString();
+                
+                tr.innerHTML = `
+                    <td>${date}</td>
+                    <td>${reservation.time}</td>
+                    <td>${reservation.name}</td>
+                    <td>${reservation.email}</td>
+                    <td>${reservation.phone}</td>
+                    <td>${reservation.guests}</td>
+                    <td>
+                        <span class="status-badge status-${reservation.status}">
+                            ${reservation.status}
+                        </span>
+                    </td>
+                    <td class="action-buttons">
+                        <button onclick="updateStatus('${reservation._id}', 'confirmed')" 
+                                class="btn btn-success btn-sm">Confirmar</button>
+                        <button onclick="updateStatus('${reservation._id}', 'cancelled')" 
+                                class="btn btn-danger btn-sm">Cancelar</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Update reservation status
+        async function updateStatus(reservationId, status) {
+            try {
+                const response = await fetch(`http://localhost:3000/api/reservations/${reservationId}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${getToken()}`
+                    },
+                    body: JSON.stringify({ status })
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    loadReservations();
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error updating reservation:', error);
+                alert('Error al actualizar la reservación');
+            }
+        }
+
+        // Check if user is already logged in
+        if (getToken()) {
+            showDashboard();
+        }
+    </script>
+</body>
+</html>
